@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    background-color: black;
+}
+
+.container
+{
+    margin: 0 auto;
+    display: flex;
+    background-color: rgb(0, 0, 0);
+    flex-direction: column;
+    height: 80vh;
+    width: 80%;
+    border-radius: 20px;
+    color: #008000;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 50px;
+    padding: 5px;
+}
+.inputs
+{
+    font-size: 1.5em;
+    height: 10%;
+    width: 80%;
+    border-image: conic-gradient(from var(--angle),red,orange,yellow,green,blue,indigo,violet,red) 1 round;
+    border-style: solid;
+    border-width: 3px;
+    margin: 10px;
+    color: #035003;
+    text-align: center;
+    font: caption;
+    text-transform: uppercase;
+    animation: 3s rotate linear infinite;
+
+}
+.inputs::placeholder
+{
+    color: #008000;
+    text-align: center;
+    font-style: oblique;
+    text-transform: capitalize;
+    
+}
+@property --angle
+{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.container::after, .container::before
+{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), red,orange,yellow,green,blue,indigo,violet,red);
+    z-index: -1;
+    padding: 3px;
+    border-radius: 10px;
+    animation: 3s rotate linear infinite;
+   
+}
+.container::before
+{
+    filter: blur(2rem);
+    opacity: 0.8;
+}
+@keyframes rotate
+{
+    from
+    {
+        --angle:0deg;
+    }
+    to
+    {
+        --angle:360deg;
+    }
+}
+#Display
+{
+    margin: 30px;
+    text-align: center;
+}
