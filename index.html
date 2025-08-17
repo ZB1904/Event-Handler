@@ -12,9 +12,26 @@
 
     <h2 id="Display">Fill the required fields to Create Event</h2>
     <input type="text" class="inputs" id="EventName" placeholder="Event Name">
+    <div class="contain">
     <input type="text" class="inputs" id="Start" placeholder="Start">
-    <input type="text" class="inputs" id="End" placeholder="End">
+    <label>AM</label>
+    <input type="radio"class="input" name="meridiem">
+    <label>PM</label>
+    <input type="radio"class="input" name="meridiem" id="meridiem">
+    </div><div class="contain">
     <input type="text" class="inputs" id="CutOff" placeholder="Cut Off">
+    <label>AM</label>
+    <input type="radio"class="input" name="meridiem2">
+    <label>PM</label>
+    <input type="radio"class="input" name="meridiem2" id="meridiem2">
+    </div><div class="contain">
+    <input type="text" class="inputs" id="End" placeholder="End">
+    <label>AM</label>
+    <input type="radio"class="input" name="meridiem1" >
+    <label>PM</label>
+    <input type="radio"class="input" name="meridiem1" id="meridiem1">
+    </div>
+    <input type="text"class="inputs"  placeholder="Penalty in Minutes" id="Penalty">
     <button id="Init" class="inputs">Initialize</button>
 
 </div>

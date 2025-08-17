@@ -17,40 +17,59 @@ test_compatibility()
 
 Get_Unsuccessful()
 {
-    this.display.textContent="unable to get your location,\nplease enable the location permission and check your internet connection.";
+    this.display.textContent="Sending...";
     return null;
 }
 
-getLocation() {
-    console.log("Calling geolocation API...");
+send(url,formData,display)
+{
+    fetch(url,
+                {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(() => 
+                {
+                    console.log("Submitted successfully");
+                    display.textContent=`Complete!`;
+                })
+                    .catch(err => {
+                    console.error("Submission failed", err);
+                    display.textContent=`Submission Failed Check Your Internet Connection`;
+                });
+}
 
-    return new Promise((resolve, reject) => {
-        if (!navigator.geolocation) {
-            console.warn("Geolocation not supported");
-            reject({ code: 0, message: "Geolocation not supported" });
-            return;
-        }
-
+getLocation(display,url,data) 
+    {
+    
+        console.log(data)
         navigator.geolocation.getCurrentPosition(
             // Success callback
-            position => {
-                console.log("Geolocation success!");
-                resolve({
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude
-                });
+            position => 
+            {
+            console.log("Geolocation success!");
+            const lat = position.coords.latitude;
+            const lon= position.coords.longitude;
+            const formData =new FormData();
+
+            formData.append("eventName",data.eventName)
+            formData.append("start",data.start)
+            formData.append("end",data.end)
+            formData.append("cutOff",data.cutOff)
+            formData.append("latitude",lat)
+            formData.append("longitude",lon)
+            formData.append("logOff",data.logOff)
+
+            this.send(url,formData,display)
+            return;               
             },
-            // Error callback
-            function (error) {
-                console.error("Geolocation error caught:", error);
-                reject(error);
-            },
+            this.Get_Unsuccessful.bind(this)
+            ,
             {
                 enableHighAccuracy: true,
                 timeout: 10000,
                 maximumAge: 0
             }
         );
-    });
-}
+    }
 }

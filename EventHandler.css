@@ -23,23 +23,18 @@ body
     justify-content: center;
     position: relative;
     top: 50px;
-    padding: 5px;
+    padding: 0px;
 }
 .inputs
 {
-    font-size: 1.5em;
-    height: 10%;
-    width: 80%;
-    border-image: conic-gradient(from var(--angle),red,orange,yellow,green,blue,indigo,violet,red) 1 round;
-    border-style: solid;
-    border-width: 3px;
-    margin: 10px;
-    color: #035003;
-    text-align: center;
-    font: caption;
-    text-transform: uppercase;
-    animation: 3s rotate linear infinite;
-
+    font-size: 1em;
+    width: 60%;
+    height: 100%;
+}
+@media screen and (max-width:600px){
+    .inputs{width: 60%; min-width: none;}
+    .input{width:8%}
+    .contain .inputs{align-self: baseline;}
 }
 .inputs::placeholder
 {
@@ -89,3 +84,34 @@ body
     margin: 30px;
     text-align: center;
 }
+.contain
+{
+    display: flex;
+    font-size: 3em;
+    height: 10%;
+    width: 80%;
+    border-image: conic-gradient(from var(--angle),red,orange,yellow,green,blue,indigo,violet,red) 1 round;
+    border-style: solid;
+    border-width: 2px;
+    margin: 3px;
+    color: #035003;
+    text-align: center;
+    font: caption;
+    text-transform: uppercase;
+    animation: 3s rotate linear infinite;
+    background-color: aliceblue;
+    justify-items: auto;
+    
+}
+input{border: solid aliceblue; background-color: aliceblue; width: auto; height: 75%; margin-left: 5px;}
+
+#Init ,#EventName,#Penalty
+{
+    height: 10%;
+    min-width: 80%;
+    margin: 3px;
+    border-image: conic-gradient(from var(--angle),red,orange,yellow,green,blue,indigo,violet,red) 1 round;
+    border-style: solid;
+    border-width: 2px;
+}
+
