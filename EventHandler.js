@@ -40,7 +40,7 @@ initialize.onclick = async () => {
     end:end.value,
     cutOff:cutOff.value,
     penalty:penalty.value,
-    logOff:"",
+    logOff:"null",
 } 
     if(m.checked && data.start >= 1200 && data.start <1300)
         {
