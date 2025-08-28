@@ -46,17 +46,29 @@ initialize.onclick = async () => {
         {
             data.start=Number(start.value);
         }
-        else{data.start=Number(start.value)+1200;}
+        else if( m.checked && data.start)
+            {
+               data.start=Number(start.value)+1200;
+            }
+        else{data.start=Number(start.value)}
     if(m1.checked && data.end >= 1200 && data.end <1300)
         {
             data.end=Number(end.value);
         }
-        else{data.end=Number(end.value)+1200;}
+        else if( m1.checked && data.start)
+            {
+               data.end=Number(start.value)+1200;
+            }
+        else{data.end=Number(end.value)}
     if(m2.checked && data.cutOff >= 1200 && data.cutOff <1300)
         {
             data.cutOff=Number(cutOff.value);
         }
-        else{data.cutOff=Number(cutOff.value)+1200;}
+        else if( m2.checked && data.start)
+            {
+               data.cutOff=Number(start.value)+1200;
+            }
+        else{data.cutOff=Number(cutOff.value)}
 
     try {
         await Locate.getLocation(display,url,data)
